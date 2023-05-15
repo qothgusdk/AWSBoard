@@ -25,7 +25,7 @@ public class PostsApiController {
         return postsService.update(id, requestDto);
     }
 
-    @GetMapping("/api/v1/posts/{id}") // 게시판 상세 조회
+    @GetMapping("/api/v1/posts/{id}") // 게시판 상세조회
     public PostsResponseDto findById (@PathVariable Long id){
         return  postsService.findById(id);
     }
