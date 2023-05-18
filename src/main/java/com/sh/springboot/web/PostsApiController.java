@@ -1,5 +1,6 @@
 package com.sh.springboot.web;
 
+import com.sh.springboot.posts.Posts;
 import com.sh.springboot.web.dto.PostsListResponseDto;
 import com.sh.springboot.web.dto.PostsResponseDto;
 import com.sh.springboot.web.dto.PostsSaveRequestDto;
@@ -39,5 +40,20 @@ public class PostsApiController {
     public Long delete(@PathVariable Long id){
         postsService.delete(id);
         return id;
+    }
+
+    @GetMapping("/api/v1/titleSearch/{title}") // 게시판 제목 검색
+    public List<Posts> findByTitleContaining (@PathVariable String title) {
+        return postsService.findByTitleContaining(title);
+    }
+
+    @GetMapping("/api/v1/contentSearch/{content}") // 게시판 내용 검색
+    public List<Posts> findByContentContaining (@PathVariable String content) {
+        return postsService.findByContentContaining(content);
+    }
+
+    @GetMapping("/api/v1/authorSearch/{author}") // 게시판 작성자 검색
+    public List<Posts> findByAuthorContaining (@PathVariable String author) {
+        return postsService.findByAuthorContaining(author);
     }
 }

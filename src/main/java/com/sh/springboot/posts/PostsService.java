@@ -48,5 +48,20 @@ public class PostsService {
 
         postsRepository.delete(posts);
     }
+
+    @Transactional
+    public List<Posts> findByTitleContaining (String title) {
+        return postsRepository.findByTitleContaining(title);
+    }
+
+    @Transactional
+    public List<Posts> findByContentContaining (String content){
+        return postsRepository.findByContentContaining(content);
+    }
+
+    @Transactional
+    public List<Posts> findByAuthorContaining(String author) {
+        return postsRepository.findByAuthorContaining(author);
+    }
 }
 
